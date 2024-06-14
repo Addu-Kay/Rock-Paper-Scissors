@@ -24,18 +24,12 @@ function getHumanChoice() {
 let humanScore = 0,
   computerScore = 0;
 
+const winMap = { rock: "scissors", scissors: "paper", paper: "rock" };
+
 function playRound(humanChoice, computerChoice) {
-  if (humanChoice == "rock" && computerChoice == "scissors") {
+  if (winMap[humanChoice] == computerChoice) {
     humanScore++;
-  } else if (humanChoice == "paper" && computerChoice == "rock") {
-    humanScore++;
-  } else if (humanChoice == "scissors" && computerChoice == "paper") {
-    humanScore++;
-  } else if (humanChoice == "rock" && computerChoice == "paper") {
-    computerScore++;
-  } else if (humanChoice == "paper" && computerChoice == "scissors") {
-    computerScore++;
-  } else if (humanChoice == "scissors" && computerChoice == "rock") {
+  } else if (winMap[computerChoice] == humanChoice) {
     computerScore++;
   }
 }
@@ -46,10 +40,13 @@ function playGame() {
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
   }
+  console.log(humanScore, computerScore);
   if (humanScore > computerScore) {
     console.log("Human won");
-  } else {
+  } else if (humanScore < computerScore) {
     console.log("Computer won");
+  } else {
+    console.log("Draw");
   }
 }
 
