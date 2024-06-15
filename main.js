@@ -42,7 +42,7 @@ function playRound(humanChoice, computerChoice) {
   } else if (winMap[computerChoice] == humanChoice) {
     computerScore++;
     computerScoreContainer.textContent = computerScore;
-    choiceContainer.textContent = `You won round:${round}, ${computerChoice} beats ${humanChoice}`;
+    choiceContainer.textContent = `Computer won round:${round}, ${computerChoice} beats ${humanChoice}`;
     round++;
   } else {
     choiceContainer.textContent = `It's a tie at round:${round}`;
